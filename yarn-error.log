@@ -1,29 +1,30 @@
 Arguments: 
-  /usr/local/Cellar/node/8.1.3/bin/node /usr/local/bin/yarn test
+  /Users/chrisdepaul/.nvm/versions/node/v10.4.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add @babel/babel-plugin-transform-runtime
 
 PATH: 
-  /Users/chrisdepaul/google-cloud-sdk/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
+  /usr/local/bin:/Users/chrisdepaul/Library/python/2.7/bin:/Users/chrisdepaul/.local/bin:/Users/chrisdepaul/.nvm/versions/node/v10.4.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/chrisdepaul/Library/Android/sdk/tools:/Users/chrisdepaul/Library/Android/sdk/platform-tools
 
 Yarn version: 
-  1.5.1
+  1.3.2
 
 Node version: 
-  8.1.3
+  10.4.0
 
 Platform: 
   darwin x64
 
 npm manifest: 
   {
-    "name": "jest",
+    "name": "worldcup",
     "version": "1.0.0",
     "main": "index.js",
+    "engine": "10.4.0",
     "license": "MIT",
     "scripts": {
       "clean:build": "rm -rf dist",
       "build": "yarn clean:build && yarn type && babel src -d dist --extensions '.ts,.tsx,.js,.jsx'",
       "dev": "tsc-watch --onSuccess \"yarn start:dev\"",
-      "start:dev": "babel-node --extensions '.ts,.tsx,.js,.jsx' ./src/index.ts",
+      "start:dev": "babel-node --extensions '.ts,.tsx,.js,.jsx' ./src/index.js",
       "type": "tsc",
       "test": "jest --config jest.config.json"
     },
@@ -43,6 +44,9 @@ npm manifest:
       "typescript": "^2.8.3"
     },
     "dependencies": {
+      "dotenv": "^6.0.0",
+      "gmail-send": "^1.2.14",
+      "lokijs": "^1.5.5",
       "request": "^2.85.0"
     }
   }
@@ -1468,6 +1472,10 @@ Lockfile:
     dependencies:
       webidl-conversions "^4.0.2"
   
+  dotenv@^6.0.0:
+    version "6.0.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
+  
   duplexer@^0.1.1, duplexer@~0.1.1:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -1860,6 +1868,13 @@ Lockfile:
   globals@^9.18.0:
     version "9.18.0"
     resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
+  
+  gmail-send@^1.2.14:
+    version "1.2.14"
+    resolved "https://registry.yarnpkg.com/gmail-send/-/gmail-send-1.2.14.tgz#2fd20a0270197be46f8f2633ea34f9410dec01b1"
+    dependencies:
+      lodash "^4.17.5"
+      nodemailer "^4.6.4"
   
   graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
     version "4.1.11"
@@ -2755,6 +2770,10 @@ Lockfile:
     version "4.17.10"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
   
+  lokijs@^1.5.5:
+    version "1.5.5"
+    resolved "https://registry.yarnpkg.com/lokijs/-/lokijs-1.5.5.tgz#1c21f82af7579037fade7b9e4813485c23708bb6"
+  
   longest@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -2980,6 +2999,10 @@ Lockfile:
       rimraf "^2.6.1"
       semver "^5.3.0"
       tar "^4"
+  
+  nodemailer@^4.6.4:
+    version "4.6.6"
+    resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.6.tgz#9ba4be51ffa5da2b2dbc392b87e30bff7166e139"
   
   nopt@^4.0.1:
     version "4.0.1"
@@ -4256,17 +4279,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c jest --config jest.config.json
-  Directory: /Users/chrisdepaul/scripting/_typescript_babel_jest
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at emitTwo (events.js:125:13)
-      at ChildProcess.emit (events.js:213:7)
-      at maybeClose (internal/child_process.js:897:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:208:5)
+  Error: https://registry.yarnpkg.com/@babel%2fbabel-plugin-transform-runtime: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:62098:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123085:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:124068:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123988:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1081:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)

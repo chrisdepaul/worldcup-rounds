@@ -1,1 +1,0 @@
-export const log = jest.fn((msg) => console.log(`mock: ${msg}`))

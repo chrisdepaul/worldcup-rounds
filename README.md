@@ -4,7 +4,7 @@ Use TypeScript for typechecking only. Use Babel for running in dev mode and for 
 
 ### Install Packages
 
-`yarn add @babel/core @babel/node @babel/preset-env @babel/cli @babel/preset-typescript @babel/babel-plugin-transform-runtime @types/node typescript tsc-watch --dev`
+`yarn add @babel/core @babel/node @babel/preset-env @babel/cli @babel/preset-typescript @babel/plugin-transform-runtime @types/node typescript tsc-watch --dev`
 
 ### Create `.babelrc` in root
 
@@ -72,7 +72,7 @@ Add a file named `tsconfig.json` that looks like the one in this folder. `tsconf
 
 `yarn add jest @types/jest ts-jest --dev`
 
-_Note: `ts-jest` is required for typescript projects. `babel-jest `is also required, but it comes with `jest` already.  
+\_Note: `ts-jest` is required for typescript projects. `babel-jest`is also required, but it comes with `jest` already.
 
 ### Create `jest.config.js`
 
