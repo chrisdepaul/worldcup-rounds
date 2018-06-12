@@ -1,8 +1,5 @@
 import dotenv from 'dotenv/config';
 import request from 'request-promise';
-import startDb from './startDb';
-
-const db = startDb();
 
 const getStandings = async () => {
   return await request({

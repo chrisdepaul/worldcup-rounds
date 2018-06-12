@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 .env
-src/participants-config.js
+src/config/participants.js
