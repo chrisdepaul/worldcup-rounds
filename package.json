@@ -32,6 +32,7 @@
     "dotenv": "^6.0.0",
     "gmail-send": "^1.2.14",
     "lokijs": "^1.5.5",
-    "request": "^2.85.0"
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
   }
 }

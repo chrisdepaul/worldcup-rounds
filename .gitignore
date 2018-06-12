@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 .env
-src/startDb.js
+src/participant-config.js
