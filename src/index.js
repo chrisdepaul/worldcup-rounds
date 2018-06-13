@@ -3,12 +3,20 @@ import request from 'request-promise';
 import { sort } from 'ramda';
 import gmail from 'gmail-send';
 import moment from 'moment';
-import pool from './config/participants';
-import participants from './config/participants';
+// import pool from './config/participants';
+// import participants from './config/participants';
 import scoring from './config/scoring';
 
 import http from 'http';
 import createHandler from 'github-webhook-handler';
+
+const participants = [
+  {
+    name: 'Chris',
+    email: 'cdepaul@gmail.com',
+    teams: ['URU', 'ESP', 'FRA', 'NGA', 'BRA', 'GER', 'BEL', 'COL'],
+  },
+];
 const handler = createHandler({
   path: '/webhook',
   secret: process.env.WEBHOOK_SECRET,
