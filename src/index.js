@@ -12,7 +12,7 @@ import createHandler from 'github-webhook-handler';
 
 http
   .createServer(function(req, res) {
-    console.log('listning...')
+    console.log('listning...');
   })
   .listen(8080);
 
@@ -130,4 +130,4 @@ http
 //   } catch (error) {
 //     console.log(error);
 //   }
-};
+// };
