@@ -33,6 +33,8 @@ handler.on('push', function(event) {
     event.payload.repository.name,
     event.payload.ref,
   );
+
+  updateLeaderBoard();
 });
 
 const send = gmail({
@@ -115,5 +117,3 @@ const updateLeaderBoard = async () => {
     console.log(error);
   }
 };
-
-updateLeaderBoard();
