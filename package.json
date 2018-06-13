@@ -9,7 +9,7 @@
     "build": "yarn clean:build && yarn type && babel src -d dist --extensions '.ts,.tsx,.js,.jsx'",
     "dev": "tsc-watch --onSuccess \"yarn start:dev\"",
     "start:dev": "babel-node --extensions '.ts,.tsx,.js,.jsx' ./src/index.js",
-    "start:prod": "node dist/index.js",
+    "start": "npm build && node dist/index.js",
     "type": "tsc",
     "test": "jest --config jest.config.json"
   },
