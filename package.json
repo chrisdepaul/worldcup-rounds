@@ -9,6 +9,7 @@
     "build": "yarn clean:build && yarn type && babel src -d dist --extensions '.ts,.tsx,.js,.jsx'",
     "dev": "tsc-watch --onSuccess \"yarn start:dev\"",
     "start:dev": "babel-node --extensions '.ts,.tsx,.js,.jsx' ./src/index.js",
+    "start:prod": "node dist/index.js",
     "type": "tsc",
     "test": "jest --config jest.config.json"
   },
@@ -30,7 +31,9 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.49",
     "dotenv": "^6.0.0",
+    "github-webhook-handler": "^0.7.1",
     "gmail-send": "^1.2.14",
+    "moment": "^2.22.2",
     "ramda": "^0.25.0",
     "request": "^2.87.0",
     "request-promise": "^4.2.2"
