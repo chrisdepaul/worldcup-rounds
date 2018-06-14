@@ -33,7 +33,7 @@
     "dotenv": "^6.0.0",
     "github-webhook-handler": "^0.7.1",
     "gmail-send": "^1.2.14",
-    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.17",
     "ramda": "^0.25.0",
     "request": "^2.87.0",
     "request-promise": "^4.2.2"

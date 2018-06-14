@@ -2,7 +2,7 @@ require('dotenv').config();
 import request from 'request-promise';
 import { flatten, pathOr, sort } from 'ramda';
 import gmail from 'gmail-send';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import participants from './config/participants';
 import scoring from './config/scoring';
 
