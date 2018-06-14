@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . /app
 RUN yarn --production
 COPY . .
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["yarn", "start"]
 
