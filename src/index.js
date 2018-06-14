@@ -3,18 +3,13 @@ import request from 'request-promise';
 import { sort } from 'ramda';
 import gmail from 'gmail-send';
 import moment from 'moment';
-// import pool from './config/participants';
 // import participants from './config/participants';
 import scoring from './config/scoring';
 
 import http from 'http';
 import createHandler from 'github-webhook-handler';
 
-http
-  .createServer(function(req, res) {
-    console.log('listning...');
-  })
-  .listen(8080);
+const port = process.env.PORT;
 
 // const participants = [
 //   {
@@ -23,33 +18,35 @@ http
 //     teams: ['URU', 'ESP', 'FRA', 'NGA', 'BRA', 'GER', 'BEL', 'COL'],
 //   },
 // ];
-// const handler = createHandler({
-//   path: '/webhook',
-//   secret: process.env.WEBHOOK_SECRET,
-// });
+const handler = createHandler({
+  path: '/webhook',
+  secret: process.env.WEBHOOK_SECRET,
+});
 
-// http
-//   .createServer(function(req, res) {
-//     handler(req, res, function(err) {
-//       res.statusCode = 404;
-//       res.end('no such location');
-//     });
-//   })
-//   .listen(8080);
+http
+  .createServer(function(req, res) {
+    handler(req, res, function(err) {
+      res.statusCode = 404;
+      res.end('no such location');
+    });
+  })
+  .listen(port);
 
-// handler.on('error', function(err) {
-//   console.error('Error:', err.message);
-// });
+console.log(`listening on port ${port}`);
 
-// handler.on('push', function(event) {
-//   console.log(
-//     'Received a push event for %s to %s',
-//     event.payload.repository.name,
-//     event.payload.ref,
-//   );
+handler.on('error', function(err) {
+  console.error('Error:', err.message);
+});
 
-//   updateLeaderBoard();
-// });
+handler.on('push', function(event) {
+  console.log(
+    'Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref,
+  );
+
+  updateLeaderBoard();
+});
 
 // const send = gmail({
 //   user: process.env.EMAIL,
@@ -104,7 +101,7 @@ http
 //   try {
 //     const teamStandings = await getStandings();
 
-//     const poolStandings = pool
+//     const poolStandings = participants
 //       .map(participant => {
 //         const points = participant.teams.reduce((totalPoints, team) => {
 //           const round = teamStandings[team].round;

@@ -9,7 +9,7 @@
     "build": "npm run clean:build && npm run type && babel src -d dist --extensions '.ts,.tsx,.js,.jsx'",
     "dev": "tsc-watch --onSuccess \"npm run start:dev\"",
     "start:dev": "babel-node --extensions '.ts,.tsx,.js,.jsx' ./src/index.js",
-    "start": "npm run build && node ./dist/index.js",
+    "start": "node ./dist/index.js",
     "type": "tsc",
     "test": "jest --config jest.config.json"
   },
