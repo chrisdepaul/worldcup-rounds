@@ -43,9 +43,9 @@ handler.on('push', async function(event) {
 
   if (modifiedFiles.includes(API_FILE)) {
     console.log(
-      `${API_FILE} updated! Update Leader Board on ${moment().format(
-        'MMMM Do YYYY, h:mm:ss a',
-      )}`,
+      `${API_FILE} updated! Update Leader Board on ${moment()
+        .tz('America/Toronto')
+        .format('MMMM Do YYYY, h:mm:ss a')}`,
     );
     await updateLeaderBoard();
   }
@@ -79,9 +79,9 @@ const sendEmails = async (poolStandings, rounds, emails) => {
   try {
     await send({
       to: emails,
-      subject: `Worldcup Standings: ${moment().format(
-        'MMMM Do YYYY, h:mm:ss a',
-      )}`,
+      subject: `Worldcup Standings: ${moment()
+        .tz('America/Toronto')
+        .format('MMMM Do YYYY, h:mm:ss a')}`,
       html: `
       <p>Hello Everyone! This is ChrisBot, a bot programmed by Chris to send you the ongoing results of the pool. I might be fraught with problems, but love me, like Real Chris, all the same. Notify Miles DePaul about any score disputes I report.</p>
       <p>These points were recorded after round: ${rounds}.</p>
