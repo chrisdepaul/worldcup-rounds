@@ -119,7 +119,7 @@ const updateLeaderBoard = async () => {
       })
       .sort(
         (participant_a, participant_b) =>
-          participant_a.points - participant_b.points,
+          participant_b.points - participant_a.points,
       );
 
     const completedRounds = Object.keys(teamStandings).map(
