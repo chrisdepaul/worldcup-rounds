@@ -9,7 +9,7 @@ import scoring from './config/scoring';
 import http from 'http';
 import createHandler from 'github-webhook-handler';
 
-const { PORT, API_BASE, API_FILE } = process.env;
+const { PORT, API_BASE, API_FILE, MAX_ROUNDS } = process.env;
 
 const handler = createHandler({
   path: '/webhook',
@@ -127,7 +127,8 @@ const updateLeaderBoard = async () => {
     const participantEmails = participants.map(
       participant => participant.email,
     );
-    console.log(`Pool Standings: ${poolStandings}`);
+    console.log(`Pool Standings: ${JSON.stringify(poolStandings)}`);
+
     return sendEmails(poolStandings, maxRound, participantEmails);
   } catch (error) {
     console.log(error);
