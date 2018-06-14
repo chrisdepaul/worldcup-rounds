@@ -1,6 +1,6 @@
 require('dotenv').config();
 import request from 'request-promise';
-import { pathOr, sort } from 'ramda';
+import { flatten, pathOr, sort } from 'ramda';
 import gmail from 'gmail-send';
 import moment from 'moment';
 // import participants from './config/participants';
@@ -40,11 +40,17 @@ handler.on('error', function(err) {
 });
 
 handler.on('push', function(event) {
-  const changedFiles = pathOr(null, ['payload', 'commits', 'modified'], event);
+  const commits = pathOr(null, ['payload', 'commits'], event);
+  const modifiedFiles = commits
+    .map(commit => pathOr(null, ['modified'], commit))
+    .filter(item => item !== null);
+  console.log(modifiedFiles);
+  const flattenedFiles = flatten(modifiedFiles);
+  console.log(flattenedFiles);
 
-  console.log(`Received a push event! Changed files: ${changedFiles}.`);
+  console.log(`Received a push event! Changed files: ${flattenedFiles}.`);
 
-  if (changedFiles.includes(API_FILE)) {
+  if (flattenedFiles.includes(API_FILE)) {
     console.log(`The API File Changed!`);
   }
   // updateLeaderBoard();
