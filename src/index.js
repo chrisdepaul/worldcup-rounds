@@ -1,6 +1,6 @@
 require('dotenv').config();
 import request from 'request-promise';
-import { sort } from 'ramda';
+import { pathOr, sort } from 'ramda';
 import gmail from 'gmail-send';
 import moment from 'moment';
 // import participants from './config/participants';
@@ -10,6 +10,7 @@ import http from 'http';
 import createHandler from 'github-webhook-handler';
 
 const port = process.env.PORT;
+const API_FILE = process.env.API_FILE;
 
 // const participants = [
 //   {
@@ -39,13 +40,14 @@ handler.on('error', function(err) {
 });
 
 handler.on('push', function(event) {
-  console.log(
-    'Received a push event for %s to %s',
-    event.payload.repository.name,
-    event.payload.ref,
-  );
+  const changedFiles = pathOr(null, ['payload', 'commits', 'modified'], event);
 
-  updateLeaderBoard();
+  console.log(`Received a push event! Changed files: ${changedFiles}.`);
+
+  if (changedFiles.includes(API_FILE)) {
+    console.log(`The API File Changed!`);
+  }
+  // updateLeaderBoard();
 });
 
 // const send = gmail({
