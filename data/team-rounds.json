@@ -1,6 +1,6 @@
 {
-  "RUS": { "name": "Russia", "group": "A", "round": 6 },
-  "KSA": { "name": "Saudi Arabia", "group": "A", "round": 5 },
+  "RUS": { "name": "Russia", "group": "A", "round": 5 },
+  "KSA": { "name": "Saudi Arabia", "group": "A", "round": 6 },
   "EGY": { "name": "Egypt", "group": "A", "round": 4 },
   "URU": { "name": "Uruguay", "group": "A", "round": 4 },
   "POR": { "name": "Portugal", "group": "B", "round": 3 },
