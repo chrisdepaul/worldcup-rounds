@@ -1,5 +1,5 @@
 {
-  "RUS": { "name": "Russia", "group": "A", "round": 2 },
+  "RUS": { "name": "Russia", "group": "A", "round": 1 },
   "KSA": { "name": "Saudi Arabia", "group": "A", "round": 1 },
   "EGY": { "name": "Egypt", "group": "A", "round": 1 },
   "URU": { "name": "Uruguay", "group": "A", "round": 1 },
@@ -14,7 +14,7 @@
   "ARG": { "name": "Argentina", "group": "D", "round": 1 },
   "ISL": { "name": "Iceland", "group": "D", "round": 1 },
   "CRO": { "name": "Croatia", "group": "D", "round": 1 },
-  "NGA": { "name": "Nigeria", "group": "D", "round": 1 },
+  "NGA": { "name": "Nigeria", "group": "D", "round": 3 },
   "BRA": { "name": "Brazil", "group": "E", "round": 1 },
   "SUI": { "name": "Switzerland", "group": "E", "round": 1 },
   "CRC": { "name": "Costa Rica", "group": "E", "round": 1 },
