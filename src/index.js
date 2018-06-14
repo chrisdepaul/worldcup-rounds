@@ -32,7 +32,7 @@ http
   })
   .listen(port);
 
-console.log(`listening on port ${port}`);
+console.log(`listening on port ${port}...`);
 
 handler.on('error', function(err) {
   console.error('Error:', err.message);
