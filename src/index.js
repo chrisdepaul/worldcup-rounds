@@ -41,16 +41,15 @@ handler.on('error', function(err) {
 
 handler.on('push', function(event) {
   const commits = pathOr(null, ['payload', 'commits'], event);
-  const modifiedFiles = commits
-    .map(commit => pathOr(null, ['modified'], commit))
-    .filter(item => item !== null);
-  console.log(modifiedFiles);
-  const flattenedFiles = flatten(modifiedFiles);
-  console.log(flattenedFiles);
+  const modifiedFiles = flatten(
+    commits
+      .map(commit => pathOr(null, ['modified'], commit))
+      .filter(item => item !== null),
+  );
 
-  console.log(`Received a push event! Changed files: ${flattenedFiles}.`);
+  console.log(`Received a push event! Changed files: ${modifiedFiles}.`);
 
-  if (flattenedFiles.includes(API_FILE)) {
+  if (modifiedFiles.includes(API_FILE)) {
     console.log(`The API File Changed!`);
   }
   // updateLeaderBoard();
