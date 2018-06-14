@@ -31,7 +31,7 @@ handler.on('error', function(err) {
   console.error('Error:', err.message);
 });
 
-handler.on('push', function(event) {
+handler.on('push', async function(event) {
   const commits = pathOr(null, ['payload', 'commits'], event);
   const modifiedFiles = flatten(
     commits
@@ -42,8 +42,12 @@ handler.on('push', function(event) {
   console.log(`Received a push event! Changed files: ${modifiedFiles}.`);
 
   if (modifiedFiles.includes(API_FILE)) {
-    console.log(`${API_FILE} updated!`);
-    updateLeaderBoard();
+    console.log(
+      `${API_FILE} updated! Update Leader Board on ${moment().format(
+        'MMMM Do YYYY, h:mm:ss a',
+      )}`,
+    );
+    await updateLeaderBoard();
   }
 });
 
@@ -60,6 +64,7 @@ const getStandings = async () => {
 };
 
 const sendEmails = async (poolStandings, rounds, emails) => {
+  console.log(`Sending Emails...`);
   const rows = poolStandings
     .map(
       standing =>
@@ -89,6 +94,7 @@ const sendEmails = async (poolStandings, rounds, emails) => {
       </table>
     `,
     });
+    console.log(`Emails Sent!`);
   } catch (error) {
     console.log(error);
     throw error;
@@ -103,7 +109,7 @@ const updateLeaderBoard = async () => {
       .map(participant => {
         const points = participant.teams.reduce((totalPoints, team) => {
           const round = teamStandings[team].round;
-          const pointsFromTeam = round * scoring[round].pts;
+          const pointsFromTeam = scoring[round].pts;
           return totalPoints + pointsFromTeam;
         }, 0);
         return {
@@ -121,6 +127,7 @@ const updateLeaderBoard = async () => {
     const participantEmails = participants.map(
       participant => participant.email,
     );
+    console.log(`Pool Standings: ${poolStandings}`);
     return sendEmails(poolStandings, maxRound, participantEmails);
   } catch (error) {
     console.log(error);

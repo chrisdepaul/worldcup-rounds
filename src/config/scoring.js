@@ -6,15 +6,15 @@ export default {
     pts: 1,
   },
   3: {
-    pts: 3,
+    pts: 2,
   },
   4: {
-    pts: 6,
+    pts: 3,
   },
   5: {
-    pts: 10,
+    pts: 4,
   },
   6: {
-    pts: 15,
+    pts: 5,
   },
 };
